@@ -1,8 +1,27 @@
 const products = data;
 const productsSection = document.querySelector(".products");
 const categoriesSection = document.querySelector(".categories-items");
-
+let cart = [];
 let categories = new Set();
+let addToCartButtons;
+
+const addToCart = (e) => {
+  const selectedId = parseInt(e.target.dataset.id);
+  const key = products.findIndex((product) => product.id === selectedId);
+
+  cart.push(products.at(key));
+
+  const cartTotal = cart.reduce((sum, product) => {
+    return (sum +=
+      product.price - (product.saleAmount ? product.saleAmount : 0));
+  }, 0);
+
+  cartTotal > 0
+    ? cartClearBtn.classList.add("active")
+    : cartClearBtn.classList.remove("active");
+
+  cartAmount.innerHTML = `${cartTotal} zł`;
+};
 
 const renderProducts = (items) => {
   productsSection.innerHTML = "";
@@ -21,11 +40,13 @@ const renderProducts = (items) => {
       2
     )}zł </span>
       </div>
-      <button class="btn-add-product">Add to cart</button>
+      <button data-id="${item.id}" class="btn-add-product">Add to cart</button>
       <p class="product-item-sale-info">Sale!</p>
       `;
     productsSection.appendChild(newProduct);
   });
+  addToCartButtons = document.querySelectorAll(".btn-add-product");
+  addToCartButtons.forEach((btn) => btn.addEventListener("click", addToCart));
 };
 
 const renderCategories = (items) => {
@@ -67,3 +88,32 @@ categoriesButtons.forEach((btn) => {
     renderProducts(currentProducts);
   });
 });
+
+const searchBarInput = document.querySelector(".search-bar-input");
+
+searchBarInput.addEventListener("input", (e) => {
+  const search = e.target.value;
+
+  const foundProducts = products.filter((product) => {
+    if (product.name.toLowerCase().includes(search.toLowerCase())) {
+      return product;
+    }
+  });
+  const emptyState = document.querySelector(".empty-state");
+
+  foundProducts.length === 0
+    ? emptyState.classList.add("active")
+    : emptyState.classList.remove("active");
+
+  renderProducts(foundProducts);
+});
+
+const cartAmount = document.querySelector(".cart-amount");
+const cartClearBtn = document.querySelector(".cart-clear-btn");
+
+const clearCart = () => {
+  cartAmount.innerHTML = "Cart";
+  cart = [];
+};
+
+cartClearBtn.addEventListener("click", clearCart);

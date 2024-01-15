@@ -61,6 +61,20 @@ header {
   cursor: pointer;
 }
 
+.cart-clear-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 20px;
+  align-self: start;
+  cursor: pointer;
+  display: none;
+}
+
+.cart-clear-btn.active {
+  display: block;
+}
+
 .categories {
   display: flex;
   flex-direction: column;
@@ -210,6 +224,15 @@ header {
   background-color: rgb(211, 50, 50);
 }
 
+.empty-state {
+  display: none;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+.empty-state.active {
+  display: block;
+}
 @media screen and (min-width: 1280px) {
   .container {
     display: flex;
