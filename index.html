@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <title>Media Shop</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">
+        media shop
+        <img
+          src="/media/store_FILL0_wght400_GRAD0_opsz24.svg"
+          alt="store-icon"
+        />
+      </h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          class="search-bar-input"
+          placeholder="Search in shop..."
+          autocomplete="off"
+        />
+        <button class="search-bar-icon">
+          <img
+            src="/media/search_FILL0_wght400_GRAD0_opsz24.svg"
+            alt="search-icon"
+          />
+        </button>
+      </div>
+      <div class="header-cart">
+        <img src="/media/shopping_cart.svg" alt="shopping-cart-icon" />
+        Cart
+      </div>
+    </header>
+    <main class="container">
+      <aside class="categories">
+        <h3 class="categories-title">Categories</h3>
+        <section class="categories-items"></section>
+      </aside>
+      <section class="products-section">
+        <h3 class="products-section-title">Products</h3>
+        <div class="products"></div>
+      </section>
+    </main>
+  </body>
+</html>
