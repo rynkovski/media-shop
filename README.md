@@ -11,11 +11,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](.media/Media Shop.png)
+![media-shop](./public/media/Media%20Shop.jpeg)
 
-<!-- ### Links
+### Links
 
-- Live Site URL: -->
+- Live Site URL: (https://media-shop.vercel.app/)
 
 ### Built with
 
