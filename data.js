@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     id: 0,
     name: "AMD Ryzen 7 5700X",

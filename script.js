@@ -1,3 +1,5 @@
+import { data } from "./data";
+
 const products = data;
 const productsSection = document.querySelector(".products");
 const categoriesSection = document.querySelector(".categories-items");
